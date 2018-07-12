@@ -7,6 +7,9 @@ def create_project_hash
   kickstarter = Nokogiri::HTML(html)
 
   projects={}
+
+  kickstarter.css("li.project.grid_4").each do |project|
+    projects(project)={}
 end
 
 # projects: kickstarter.css("li.project.grid_4")
@@ -15,4 +18,3 @@ end
 # description: project.css("p.bbcard_blurb").text
 #locations: project.css("span.location-name").text
 #percent funded: project.css("ul.project-stats li.first.funded strong").text.gsub("%","").to_i
-
